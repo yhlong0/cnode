@@ -9,6 +9,17 @@
 			</ul>
 		</div>
 		<div class="inner">
+			<% if(type(error) != 'undefined' && error) { %>
+			<div class="alert alert-danger">
+				<strong><%=error%></strong>
+			</div>
+			<% } %>
+
+			<% if(type(success) != 'undefined' && error) { %>
+			<div class="alert alert-success">
+				<strong><%=success%></strong>
+			</div>
+			<% } %>
 			<form action="/signup" method="post" id="signup_form" class="form-horizontal">
 				<div class="form-group row">
 				  <label for="" class="col-xs-2 col-form-label">Username</label>
