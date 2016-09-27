@@ -1,9 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-hello
-</body>
-</html>
+<%-layout('layout')%>
+
+<div id="content">
+	<div class="panel">
+		<div class="header">
+			<ul class="breadcrumb">
+				<li><a href="/">Home</a><span class='divider'></span></li>
+				<li>Register</li>
+			</ul>
+		</div>
+		<div class="inner">
+			<form action="/signup" method="post" id="signup_form" class="form-horizontal">
+				<div class="form-group row">
+				  <label for="" class="col-xs-1 col-form-label">Username</label>
+				  <div class="col-xs-4">
+				    <input class="form-control input-xlarge" type="text" value="" id="loginname" name="loginname">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="" class="col-xs-1 col-form-label">Password</label>
+				  <div class="col-xs-4">
+				    <input class="form-control input-xlarge" type="password" value="" id="pass" name="pass">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="" class="col-xs-1 col-form-label">Re-Password</label>
+				  <div class="col-xs-4">
+				    <input class="form-control input-xlarge" type="password" value="" id="re_pass" name="re_pass">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="" class="col-xs-1 col-form-label">Email</label>
+				  <div class="col-xs-4">
+				    <input class="form-control input-xlarge" type="text" value="" id="email" name="email">
+				  </div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</div>
