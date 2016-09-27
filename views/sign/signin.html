@@ -5,15 +5,15 @@
 		<div class="header">
 			<ul class="breadcrumb">
 				<li><a href="/">Home</a><span class='divider'></span></li>
-				<li>Register</li>
+				<li>Login</li>
 			</ul>
 		</div>
 		<div class="inner">
-			<form action="/signup" method="post" id="signup_form" class="form-horizontal">
+			<form action="/signin" method="post" id="signin_form" class="form-horizontal">
 				<div class="form-group row">
 				  <label for="" class="col-xs-2 col-form-label">Username</label>
 				  <div class="col-xs-5">
-				    <input class="form-control input-xlarge" type="text" value="" id="loginname" name="loginname">
+				    <input class="form-control input-xlarge" type="text" value="" id="name" name="name">
 				  </div>
 				</div>
 				<div class="form-group row">
@@ -22,20 +22,8 @@
 				    <input class="form-control input-xlarge" type="password" value="" id="pass" name="pass">
 				  </div>
 				</div>
-				<div class="form-group row">
-				  <label for="" class="col-xs-2 col-form-label">Re-Password</label>
-				  <div class="col-xs-5">
-				    <input class="form-control input-xlarge" type="password" value="" id="re_pass" name="re_pass">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="" class="col-xs-2 col-form-label">Email</label>
-				  <div class="col-xs-5">
-				    <input class="form-control input-xlarge" type="text" value="" id="email" name="email">
-				  </div>
-				</div>
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary" value="Register">Register</button>
+					<button type="submit" class="btn btn-primary" value="Register">Login</button>
 					<button type="reset" class="btn btn-warning" value="Reset">Reset</button>
 				</div>
 			</form>
