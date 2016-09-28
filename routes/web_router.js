@@ -15,7 +15,7 @@ router.get('/signin', signController.showSignin);
 router.post('/signin', signController.signin);
 
 /* Signout. */
-router.post('/signout', signController.signout);
+router.get('/signout', signController.signout);
 
 module.exports = router;
  

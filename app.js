@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var engine = require('ejs-mate');
 var config = require('./config');
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
@@ -25,6 +27,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'fjdkslajfleenciiqpqpfj',
+  store: new RedisStore({
+    port: 6379,
+    host: '127.0.0.1'
+  }),
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.locals.config = config;
 
