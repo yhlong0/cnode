@@ -15,7 +15,6 @@ UserSchema.statics.getUserBySignupInfo = function(username, email, callback) {
 };
 
 UserSchema.statics.addUser = function(user, callback) {
-	console.log(user);
 	this.create(user, callback);
 };
 
@@ -24,3 +23,4 @@ UserSchema.statics.getUser = function(username, pass, callback) {
 };
 
 module.exports = mongoose.model('User', UserSchema);
+

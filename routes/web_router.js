@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var signController = require('../controllers/sign');
+var auth = require('../middlewares/auth');
 
 /* Show home page. */
 router.get('/', function(req, res) {
@@ -22,5 +23,17 @@ router.post('/signin', signController.signin);
 /* Signout. */
 router.get('/signout', signController.signout);
 
+/* Show Topic page */
+router.get('/topic/create', auth.requireLogin, function(req, res) {
+	res.render('topic/create');
+});
+
+/* Handle user submit topic info */
+router.post('topic/create', auth.requireLogin, function(req, res) {
+
+});
+
+
+
 module.exports = router;
- 
+
