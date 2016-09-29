@@ -2,7 +2,7 @@ var eventproxy = require('eventproxy');
 var UserModel = require('../models/user');
 
 exports.showSignup = function(req, res) {
-	res.render('sign/signup');
+	res.render('sign/signup', {error: '', success: ''});
 };
 
 exports.signup = function(req, res) {
@@ -21,13 +21,13 @@ exports.signup = function(req, res) {
 	//Data Validation
 	var hasEmptyInfo = [username, pass, re_pass, email];
 
-	hasEmptyInfo.some(function(item) {
+	var isEmpty = hasEmptyInfo.some(function(item) {
 		return item === '';
 	});
 
 	var isPassDiff = (pass !== re_pass);
 
-	if(hasEmptyInfo || isPassDiff) {
+	if(isEmpty || isPassDiff) {
 		ep.emit('info_error', 'Registration info has error');
 		return;
 	}
@@ -38,13 +38,15 @@ exports.signup = function(req, res) {
 			ep.emit('info_error', 'Get User Data Failed!');
 			return;
 		}
+		console.log(users);
 		if(users.length > 0) {
 			ep.emit('info_error', 'Username or Email already be taken!');
 			return;
 		}
 		UserModel.addUser({username: username, pass: pass, email: email}, function(err, result) {
+			console.log('12345');
 			if(result) {
-				res.render('sign/signin', {success: 'Success! Congratulations!'});
+				res.render('sign/signup', {success: 'Success! Congratulations!'});
 			} else {
 				ep.emit('info_error', 'Registration Failed!');
 			}

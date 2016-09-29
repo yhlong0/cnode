@@ -8,11 +8,14 @@ var UserSchema = new mongoose.Schema({
 });
 
 UserSchema.statics.getUserBySignupInfo = function(username, email, callback) {
-	var cond = ['$or', {username: username}, {email: email}];
-	this.find(cond, callback);
+	console.log(username);
+	console.log(email);
+	//var cond = ['$or', {username: username}, {email: email}];
+	this.find({username: username }, callback);
 };
 
 UserSchema.statics.addUser = function(user, callback) {
+	console.log(user);
 	this.create(user, callback);
 };
 
