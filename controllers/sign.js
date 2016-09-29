@@ -15,7 +15,7 @@ exports.signup = function(req, res) {
 
 	ep.on('info_error', function(msg) {
 		res.status(422);
-		res.render('sign/signup', {error: msg});
+		res.render('sign/signup', {error: msg, success:''});
 	});
 
 	//Data Validation
@@ -38,15 +38,13 @@ exports.signup = function(req, res) {
 			ep.emit('info_error', 'Get User Data Failed!');
 			return;
 		}
-		console.log(users);
 		if(users.length > 0) {
 			ep.emit('info_error', 'Username or Email already be taken!');
 			return;
 		}
 		UserModel.addUser({username: username, pass: pass, email: email}, function(err, result) {
-			console.log('12345');
 			if(result) {
-				res.render('sign/signup', {success: 'Success! Congratulations!'});
+				res.render('sign/signup', {error:'', success: 'Success! Congratulations!'});
 			} else {
 				ep.emit('info_error', 'Registration Failed!');
 			}
@@ -55,7 +53,7 @@ exports.signup = function(req, res) {
 };
 
 exports.showSignin = function(req, res) {
-	res.render('sign/signin');
+	res.render('sign/signin', {error:'', success:''});
 };
 
 exports.signin = function(req, res) {
@@ -64,16 +62,16 @@ exports.signin = function(req, res) {
 
 	if(!username || !pass) {
 		res.status(422);
-		return res.render('sign/signin', {error: 'Missing information!'});
+		return res.render('sign/signin', {error: 'Missing information!', success:''});
 	}
 
 	UserModel.getUser(username, pass, function(err, user) {
 		if(user) {
 			req.session.user = user;
-			res.render('sign/signin', {success: 'Login Success'});
+			res.render('sign/signin', {error: '', success: 'Login Success'});
 		} else {
 			res.status(422);
-			res.render('sign/signin', {error: 'Wrong Username or Password!'});
+			res.render('sign/signin', {error: 'Wrong Username or Password!', success:''});
 		}
 	});
 };

@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var signController = require('../controllers/sign');
 
+/* Show home page. */
+router.get('/', function(req, res) {
+	res.render('home');
+});
+
 /* Show registration page. */
 router.get('/signup', signController.showSignup);
 

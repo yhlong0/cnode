@@ -13,8 +13,12 @@
 			<li class="nav-item"><a class="nav-link" href="/getstart">Get Start</a></li>
 			<li class="nav-item"><a class="nav-link" href="/api">API</a></li>
 			<li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+			<% if(current_user) {%>
+			<li class="nav-item"><a class="nav-link" href="/signout">Sign Out</a></li>
+			<%} else {%>
 			<li class="nav-item"><a class="nav-link" href="/signup">Sign Up</a></li>
 			<li class="nav-item"><a class="nav-link" href="/signin">Log In</a></li>
+			<% }%>
 		</ul>
 
 	</div>
