@@ -1,6 +1,6 @@
 <%-layout('layout')%>
 
-<div class="content" class="col-xs-8">
+<div class="content col-xs-8">
 	<div class="panel">
 		<div class="header">
 			<ul class="breadcrumb">
@@ -15,31 +15,47 @@
 			<select name="tab" id="tab-value">
 				<option value='tab1'>Tab1</option>
 				<option value='tab2'>Tab2</option>
-			</select><br>
-			<input type="text" name="title" id="title" class="span9">
+			</select>
+			<br><br>
+			<div class="input-group">
+			  <span class="input-group-addon" id="basic-addon3">Your topic title:</span>
+			  <input type="text" name="title" class="form-control" id="title" aria-describedby="basic-addon3">
+			</div>
+			<br>
 			<div class="markdown_editor in_editor">
 				<div class="markdown_in_editor">
 					<textarea name="t_content" id="" cols="30" rows="10" class="editor"></textarea>
-					<div class="editor_button"><input type="submit" class="span-primary submit_btn" value="Submit"></div>
-				</div>
-				<div id="editor">
+					<br>
+					<div class="editor_button pull-right"><input type="submit" class="btn btn-success" value="Submit"></div>
+					<br>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
 
+<%-partial('./sign/sidebar')%>
 
-<!-- Main Quill library -->
-<script src="//cdn.quilljs.com/1.0.6/quill.js" type="text/javascript"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
 
-<!-- Theme included stylesheets -->
-<link href="//cdn.quilljs.com/1.0.6/quill.snow.css" rel="stylesheet">
-<link href="//cdn.quilljs.com/1.0.6/quill.bubble.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
+<!-- Main Tinymce library -->
+<script src="/public/plugins/tinymce/tinymce.min.js" type="text/javascript"></script>
 
 <!-- Initialize Quill editor -->
 <script type="text/javascript">
-	var quill = new Quill('#editor', {
-		theme: 'snow'
+	tinymce.init({
+	  selector: 'textarea',
+	  height: 470,
+	  plugins: [
+	    'advlist autolink lists link image charmap print preview anchor',
+	    'searchreplace visualblocks code fullscreen',
+	    'insertdatetime media table contextmenu paste code'
+	  ],
+	  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+	  content_css: '//www.tinymce.com/css/codepen.min.css'
 	});
 </script>
