@@ -10,21 +10,32 @@
 		</div>
 	</div>
 	<div class="inner">
+		<% if(true) { %>
+		<div class="alert alert-danger">
+			<strong><%=error%></strong>
+		</div>
+		<% } %>
+
+		<% if(true) { %>
+		<div class="alert alert-success">
+			<strong><%=success%></strong>
+		</div>
+		<% } %>
 		<form action="/topic/create" method="post" id="create_topic_form">
 			<span class="tab-selector">Select Tab</span>
-			<select name="tab" id="tab-value">
+			<select name="tab_value" id="tab_value">
 				<option value='tab1'>Tab1</option>
 				<option value='tab2'>Tab2</option>
 			</select>
 			<br><br>
 			<div class="input-group">
 			  <span class="input-group-addon" id="basic-addon3">Your topic title:</span>
-			  <input type="text" name="title" class="form-control" id="title" aria-describedby="basic-addon3">
+			  <input type="text" name="titlename" class="form-control" id="titlename" aria-describedby="basic-addon3">
 			</div>
 			<br>
 			<div class="markdown_editor in_editor">
 				<div class="markdown_in_editor">
-					<textarea name="t_content" id="" cols="30" rows="10" class="editor"></textarea>
+					<textarea name="t_content" id="t_content"></textarea>
 					<br>
 					<div class="editor_button pull-right"><input type="submit" class="btn btn-success" value="Submit"></div>
 					<br>

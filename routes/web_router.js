@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var signController = require('../controllers/sign');
+var topicController = require('../controllers/topic');
 var auth = require('../middlewares/auth');
 
 /* Show home page. */
@@ -24,15 +25,10 @@ router.post('/signin', signController.signin);
 router.get('/signout', signController.signout);
 
 /* Show Topic page */
-router.get('/topic/create', auth.requireLogin, function(req, res) {
-	res.render('topic/create');
-});
+router.get('/topic/create', auth.requireLogin, topicController.showCreate);
 
 /* Handle user submit topic info */
-router.post('topic/create', auth.requireLogin, function(req, res) {
-
-});
-
+router.post('/topic/create', auth.requireLogin, topicController.create);
 
 
 module.exports = router;
