@@ -6,7 +6,8 @@ var auth = require('../middlewares/auth');
 
 /* Show home page. */
 router.get('/', function(req, res) {
-	res.render('home');
+	console.log('test');
+	res.render('index');
 });
 
 /* Show registration page. */
