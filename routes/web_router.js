@@ -2,13 +2,11 @@ var express = require('express');
 var router = express.Router();
 var signController = require('../controllers/sign');
 var topicController = require('../controllers/topic');
+var siteController = require('../controllers/site');
 var auth = require('../middlewares/auth');
 
 /* Show home page. */
-router.get('/', function(req, res) {
-	console.log('test');
-	res.render('index');
-});
+router.get('/', siteController.index);
 
 /* Show registration page. */
 router.get('/signup', signController.showSignup);

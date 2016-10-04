@@ -1,10 +1,10 @@
 <div class="list-group">
-	<span class="user_name pull-left">Zhangliu</span>
+	<span class="user_name pull-left"><%=topic.username%></span>
 	<span class="topic_title_wrapper">
-		<a href="/topic/jflsfs" class="topic_title">title1</a>
+		<a href="/topic/<%=topic.id%>" class="topic_title"><%=topic.title%></a>
 	</span>
 	<a class="last_time pull-right" href="">
-		<span class="last_active_time">2016/12/30</span>
+		<span class="last_active_time"><%topic.insertTime%></span>
 	</a>
 </div>
 
